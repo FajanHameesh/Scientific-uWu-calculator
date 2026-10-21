@@ -1,0 +1,16 @@
+/* Animasi dan gaya efek visual. */
+@keyframes resultReveal { 0% { opacity:.25; transform:translateY(8px) scale(.97); filter:blur(2px); } 100% { opacity:1; transform:translateY(0) scale(1); filter:blur(0); } }
+@keyframes pulseGlow { 0%,100% { opacity:.55; transform:scale(.98); } 50% { opacity:1; transform:scale(1.04); } }
+@keyframes floatScreen { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-3px); } }
+@keyframes heartBeat { 0%,100% { transform:scale(1); } 18% { transform:scale(1.045); } 36% { transform:scale(1); } 54% { transform:scale(1.025); } }
+@keyframes shimmer { 0% { background-position:0% 50%; } 100% { background-position:200% 50%; } }
+@keyframes gentleShake { 0%,100% { transform:translateX(0); } 20%,60% { transform:translateX(-2px); } 40%,80% { transform:translateX(2px); } }
+@keyframes particleRise { from { transform:translate3d(0, 8vh, 0) scale(.5); opacity:0; } 15% {opacity:.85} to { transform:translate3d(var(--drift), -205vh, 0) scale(1.15); opacity:0; } }
+body.fx-reveal #result { animation:resultReveal 650ms ease both; }
+body.fx-glow::before { opacity:1; animation:pulseGlow 4s ease-in-out infinite; }
+body.fx-float .screen { animation:floatScreen 5s ease-in-out infinite; }
+body.fx-heartbeat #result { animation:heartBeat 1.5s ease-in-out infinite; transform-origin:center; }
+body.fx-shimmer .screen::before { background-image:linear-gradient(125deg,transparent 20%,var(--screen-overlay),transparent 80%); background-size:200% 100%; opacity:.9; animation:shimmer 7s linear infinite; }
+body.fx-shake .screen { animation:gentleShake 450ms ease-in-out 1; }
+#effectLayer { position:fixed; inset:0; z-index:10; pointer-events:none; overflow:hidden; }
+.effect-particle { position:absolute; bottom:-12px; left:var(--left); width:var(--size); height:var(--size); border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--glow); opacity:0; animation:particleRise var(--duration) linear var(--delay) infinite; }
