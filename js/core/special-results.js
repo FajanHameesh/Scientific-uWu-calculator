@@ -19,7 +19,9 @@ export const specialResults = [
     { id:'half-division', expression:/^50\/100$/, mode:null,
       message:'Engkaulah separuh jiwaku.', design:{ theme:'infinite', effects:['shimmer','reveal','glow','particles'] }, hint:'½' },
     { id:'half-subtraction', expression:/^100\-50$/, mode:null,
-      message:'Engkaulah separuh jiwaku.', design:{ theme:'infinite', effects:['shimmer','reveal','glow','particles'] }, hint:'½' }
+      message:'Engkaulah separuh jiwaku.', design:{ theme:'infinite', effects:['shimmer','reveal','glow','particles'] }, hint:'½' },
+    { id:'half-subtraction', expression:/^log\(0\)$/, mode:null,
+      message:'Logo', design:{ theme:'infinite', effects:['shimmer','reveal','glow','particles'] }, hint:'Logo' }
   ];
   function normalizeExpression(source) {
     return source.toLowerCase().replace(/\s+/g,'').replaceAll('°','')
